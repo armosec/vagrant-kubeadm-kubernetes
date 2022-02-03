@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
       master.vm.box = "bento/ubuntu-18.04"
       master.vm.hostname = "master-node"
       master.vm.network "private_network", ip: "10.0.0.10"
+      master.vm.network "forwarded_port", guest: 6443, host: 6443
       master.vm.provider "virtualbox" do |vb|
           vb.memory = 4048
           vb.cpus = 2
